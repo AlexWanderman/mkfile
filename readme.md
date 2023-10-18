@@ -6,11 +6,12 @@ verbosely.
 
 # Description
 
-mkfile \[OPTION\]... \[PATH\]...
+mkfile \[OPTION\]... PATH...
 
--v --verbose - print a message for each file;
--p --parents - create parent directories recursively;
--o --override - override already existing files;
+Options:
+- -v --verbose - print a message for each file.
+- -p --parents - create parent directories recursively.
+- -o --override - override already existing files.
 
 # Usage example
 
@@ -33,7 +34,7 @@ $ mkfile -v ~/file.txt
 
 # TODO
 
-- Add parameters:
-- -T --text=string - include this text in all new files
+Add parameters:
+- -T --text=string - include this text in all new files.
 - --help
 - --version
