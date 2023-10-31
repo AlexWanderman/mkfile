@@ -1,4 +1,4 @@
-# About the project
+# Overview
 
 Minimal Rust CLI app with no external dependencies. Creates text files. May
 create parent directories recursively, override existing files and output
@@ -9,9 +9,11 @@ verbosely.
 mkfile \[OPTION\]... PATH...
 
 Options:
-- -v --verbose - print a message for each file.
-- -p --parents - create parent directories recursively.
-- -o --override - override already existing files.
+- -v --verbose - print a message for each file;
+- -p --parents - create parent directories recursively;
+- -o --override - override already existing files;
+- --help - display help message and exit;
+- --version - display version message and exit.
 
 # Usage example
 
@@ -36,7 +38,7 @@ $ mkfile -v ~/file.txt
 
 # TODO
 
-Add parameters:
-- -T --text=string - include this text in all new files.
-- --help
-- --version
+- Create binary files
+- Default text parameter for all files
+- Default binary parameter for all files in binary mode
+- chmod parameter

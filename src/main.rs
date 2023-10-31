@@ -1,16 +1,15 @@
-use std::collections::VecDeque;
 use std::env;
 use std::fs;
 use std::fs::File;
 use std::path::Path;
 
 fn main() {
-    // Collect args and remove the executable path
-    let mut args: VecDeque<String> = env::args().collect();
-    args.pop_front();
+    // Collect args
+    let args: Vec<String> = env::args().collect();
 
-    // Return if no args
-    if args.is_empty() {
+    // Return if no args and print help message
+    if args.len() <= 1 {
+        print_help_msg();
         return;
     }
 
@@ -23,10 +22,11 @@ fn main() {
     let mut create_parents = false;
     let mut do_override = false;
 
-    for arg in &args {
+    // [1..] since the first arg is the executable path
+    for arg in &args[1..] {
         let a = arg.chars().nth(0);
         let b = arg.chars().nth(1);
-        let c = arg.chars().nth(3);
+        let c = arg.chars().nth(2);
 
         // Long option --option
         if a.eq(&Some('-')) && b.eq(&Some('-')) && c.is_some() {
@@ -53,6 +53,14 @@ fn main() {
             "v" | "verbose" => is_verbose = true,
             "p" | "parents" => create_parents = true,
             "o" | "override" => do_override = true,
+            "help" => {
+                print_help_msg();
+                return;
+            }
+            "version" => {
+                print_version_msg();
+                return;
+            }
             _ => options_wrong.push(opt.to_string()),
         }
     }
@@ -98,4 +106,19 @@ fn main() {
             _ => {}
         };
     }
+}
+
+fn print_help_msg() {
+    println!("Usage: mkfile [OPTION]... PATH...");
+    println!("Create file(s), if they do not already exist.\n");
+    println!("Options:");
+    println!("-v --verbose    print a message for each file");
+    println!("-p --parents    create parent directories recursively");
+    println!("-o --override   override already existing files");
+    println!("   --help       display this help and exit");
+    println!("   --version    output version information and exit (todo!)");
+}
+
+fn print_version_msg() {
+    println!("mkfile v{}", env!("CARGO_PKG_VERSION"));
 }
