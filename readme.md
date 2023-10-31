@@ -16,6 +16,7 @@ Options:
 # Usage example
 
 Create a bunch of files in verbose mode. Some of the files couldn't be created because we didn't include -p (--parent) option to create parent directories.
+
 ```
 $ mkfile -v /file.txt /test/file.txt /home/user/file.txt /home/user/test/file.txt
 
@@ -26,6 +27,7 @@ $ mkfile -v /file.txt /test/file.txt /home/user/file.txt /home/user/test/file.tx
 ```
 
 We failed to create a file because it already exist, but we didn't include -o (--override) option to override it.
+
 ```
 $ mkfile -v ~/file.txt
 
