@@ -1,4 +1,11 @@
 [package]
 name = "mkfile"
 version = "0.2.1"
+authors = ["Alex Wanderman <58393741+AlexWanderman@users.noreply.github.com>"]
 edition = "2021"
+description = "Rust CLI app to create text files. No external dependencies."
+readme = "readme.md"
+repository = "https://github.com/AlexWanderman/mkfile"
+license = "MIT"
+categories = ["command-line-utilities"]
+exclude = [".github"]
