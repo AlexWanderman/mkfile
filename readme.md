@@ -4,6 +4,8 @@ Minimal Rust CLI app with no external dependencies. Creates text files. May
 create parent directories recursively, override existing files and output
 verbosely.
 
+![Crates.io](https://img.shields.io/crates/v/mkfile)
+
 # Description
 
 mkfile \[OPTION\]... PATH...
