@@ -37,7 +37,7 @@ $ mkfile file1.txt file2.txt file3.txt -vT "Default text"
 Create file with parent directory (verbosely).
 ```
 $ mkfile -vp parent/file.txt
-/home/user/Documents/Rust/mkfile/parent/file.txt: Created with parent
+/home/user/parent/file.txt: Created with parent
 ```
 
 Dry run example. Be aware that /root_file.txt will not be created without root privileges.
